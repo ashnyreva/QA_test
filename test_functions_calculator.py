@@ -55,7 +55,7 @@ def test_plus_zero_float():
     assert functions_calculator.plus(794.5, 0) == 794.5
 
 
-def test_plus_zero_init_and_float():
+def test_plus_init_and_float():
     assert functions_calculator.plus(2.5, 1) == 3.5
     assert functions_calculator.plus(1000, 100.1) == 1100.1
     assert functions_calculator.plus(-2.5, 1) == -1.5
@@ -67,15 +67,7 @@ def test_plus_large():
 
 
 def test_minus_positive_int():
-    # assign
-    a = 3
-    b = 2
-
-    # act
-    s = functions_calculator.minus(a, b)
-
-    # assert
-    assert s == 1
+    assert functions_calculator.minus(3, 2) == 1
     assert functions_calculator.minus(2, 9) == -7
 
 
@@ -119,7 +111,7 @@ def test_minus_zero_float():
     assert functions_calculator.minus(794.5, 0) == 794.5
 
 
-def test_minus_zero_init_and_float():
+def test_minus_init_and_float():
     assert functions_calculator.minus(2.5, 1) == 1.5
     assert functions_calculator.minus(1000, 100.1) == 899.9
     assert functions_calculator.minus(-2.5, 1) == -3.5
@@ -128,3 +120,59 @@ def test_minus_zero_init_and_float():
 
 def test_minus_large():
     assert functions_calculator.minus(2000000, 2000000) == 0
+
+
+def test_multiply_positive_int():
+    assert functions_calculator.multiply(100, 40) == 4000
+    assert functions_calculator.multiply(2, 9) == 18
+
+
+def test_multiply_positive_float():
+    assert functions_calculator.multiply(5.5, 13.5) == 74.25
+    assert functions_calculator.multiply(500.3, 13.1) == 6553.93
+
+
+def test_multiply_negative_int():
+    assert functions_calculator.multiply(-2, -10) == 20
+    assert functions_calculator.multiply(-2, -1) == 2
+
+
+def test_multiply_negative_float():
+    assert functions_calculator.multiply(-2.5, -10.6) == 26.5
+    assert functions_calculator.multiply(-200.6, -123.3) == 24733.98
+
+
+def test_multiply_mixed_int():
+    assert functions_calculator.multiply(-10, 2) == -20
+    assert functions_calculator.multiply(67, -1) == -67
+
+
+def test_multiply_mixed_float():
+    assert functions_calculator.multiply(-10.5, 2.5) == -26.25
+    assert functions_calculator.multiply(67.2, -1.4) == -94.08
+
+
+def test_multiply_zero_int():
+    assert functions_calculator.multiply(-10, 0) == 0
+    assert functions_calculator.multiply(0, -1) == 0
+    assert functions_calculator.multiply(0, 0) == 0
+    assert functions_calculator.multiply(0, 10) == 0
+    assert functions_calculator.multiply(794, 0) == 0
+
+
+def test_multiply_zero_float():
+    assert functions_calculator.multiply(-10.3, 0) == 0
+    assert functions_calculator.multiply(0, -1.1) == 0
+    assert functions_calculator.multiply(0, 10.9) == 0
+    assert functions_calculator.multiply(794.5, 0) == 0
+
+
+def test_multiply_init_and_float():
+    assert functions_calculator.multiply(2.5, 1) == 2.5
+    assert functions_calculator.multiply(1000, 100.1) == 100100
+    assert functions_calculator.multiply(-2.5, 1) == -2.5
+    assert functions_calculator.multiply(10, -100.1) == -1001
+
+
+def test_multiply_large():
+    assert functions_calculator.multiply(2000000, 2000000) == 4000000000000
