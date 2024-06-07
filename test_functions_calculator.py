@@ -176,3 +176,64 @@ def test_multiply_init_and_float():
 
 def test_multiply_large():
     assert functions_calculator.multiply(2000000, 2000000) == 4000000000000
+
+
+def test_divide_positive_int():
+    assert functions_calculator.divide(100, 50) == 2
+    assert functions_calculator.divide(2, 4) == 0.5
+
+
+def test_divide_positive_float():
+    assert functions_calculator.divide(20.5, 2.5) == 8.2
+    assert functions_calculator.divide(8.4, 16.8) == 0.5
+
+
+def test_divide_negative_int():
+    assert functions_calculator.divide(-2, -10) == 0.2
+    assert functions_calculator.divide(-2, -1) == 2
+
+
+def test_divide_negative_float():
+    assert functions_calculator.divide(-4.2, -8.4) == 0.5
+    assert functions_calculator.divide(-200.6, -100.3) == 2
+
+
+def test_divide_mixed_int():
+    assert functions_calculator.divide(-10, 2) == -5
+    assert functions_calculator.divide(67, -1) == -67
+
+
+def test_divide_mixed_float():
+    assert functions_calculator.divide(-10.5, 2.5) == -4.2
+    assert functions_calculator.divide(100.5, -2.5) == -40.2
+
+
+def test_divide_zero_int():
+    assert functions_calculator.divide(0, -1) == 0
+    assert functions_calculator.divide(0, 10) == 0
+    with pytest.raises(ZeroDivisionError):
+        functions_calculator.divide(-10, 0)
+    with pytest.raises(ZeroDivisionError):
+        functions_calculator.divide(0, 0)
+    with pytest.raises(ZeroDivisionError):
+        functions_calculator.divide(794, 0)
+
+
+def test_divide_zero_float():
+    assert functions_calculator.divide(0, -1.1) == 0
+    assert functions_calculator.divide(0, 10.9) == 0
+    with pytest.raises(ZeroDivisionError):
+        functions_calculator.divide(-10.3, 0)
+    with pytest.raises(ZeroDivisionError):
+        functions_calculator.divide(794.5, 0)
+
+
+def test_divide_init_and_float():
+    assert functions_calculator.divide(2.5, 1) == 2.5
+    assert functions_calculator.divide(1000, 2.5) == 400
+    assert functions_calculator.divide(-2.5, 1) == -2.5
+    assert functions_calculator.divide(1000, -2.5) == -400
+
+
+def test_divide_large():
+    assert functions_calculator.divide(2000000, 2000000) == 1
