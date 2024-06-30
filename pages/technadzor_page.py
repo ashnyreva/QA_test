@@ -12,6 +12,7 @@ class TechnadzorPage:
         self.submit_button = (By.XPATH, '(//button[@type="submit"])[2]')
         self.privacy_policy_link = (By.XPATH, '(//div//a[@href="https://promo.cian.ru/technadzor/privacy-policy"])[2]')
         self.politika_konfidencialnosti_link = (By.XPATH, '(//div//a[@href="https://www.cian.ru/legal-documents/politika_konfidencialnosti_0/"])[2]')
+        self.applying_popup = (By.XPATH, '//div[@class="t-popup t-popup_show"]')
 
     def click_check_house_button(self):
         check_house_button = WebDriverWait(self.driver, 3).until(
@@ -48,3 +49,9 @@ class TechnadzorPage:
             EC.element_to_be_clickable(self.politika_konfidencialnosti_link)
         )
         politika_konfidencialnosti_link.click()
+
+    def applying_popup_show (self):
+        applying_popup = WebDriverWait(self.driver, 5).until(
+            EC.visibility_of_element_located(self.applying_popup)
+        )
+        return applying_popup.is_displayed()
